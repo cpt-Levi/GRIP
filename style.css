@@ -1,0 +1,23 @@
+.navbar{
+    background-color: #5aabfc;
+    color:#0830e4;
+    font-size: 20px;
+    
+}
+
+.nav-item{
+    padding: 5px 5px 5px 5px;
+    font-weight: bold;
+}
+.jumbotron{
+    padding: 70px 30px 70px 30px;
+    margin: 0px auto;
+    background-color: #4346f5;
+}
+.row-header{
+    color: floralwhite;
+}
+
+.img{
+    border-radius: 0%;
+}
