@@ -1,23 +1,61 @@
 .navbar{
-    background-color: #5aabfc;
-    color:#0830e4;
+    background-color: #08197a;
+    color:#fcfcfc;
     font-size: 20px;
     
 }
 
 .nav-item{
-    padding: 5px 5px 5px 5px;
+    padding: 0px 15px 0px 15px;
     font-weight: bold;
 }
 .jumbotron{
     padding: 70px 30px 70px 30px;
     margin: 0px auto;
-    background-color: #4346f5;
+    background-color: #2224b9;
 }
 .row-header{
+    padding-bottom: 20px;
     color: floralwhite;
+    text-align: center;
 }
 
 .img{
     border-radius: 0%;
+}
+
+body{
+    padding-top: 80px;
+}
+
+.row-content{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#principles{
+    font-size:25px;
+}
+
+.footer{
+    font-size: 18px;
+    margin-top: 40px;
+    padding-top: 40px;
+    background-color:#08197a;
+    color:#fcfcfc;
+}
+
+#link-items{
+    padding-right:20px;
+}
+
+.modal-footer{
+    background-color: #91a1f8;
+    color:white;
+}
+
+.modal-header{
+    background-color: #91a1f8;
+    color:white;
 }
