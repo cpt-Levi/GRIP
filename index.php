@@ -24,16 +24,16 @@
                     <span class = "navbar-toggler-icon"></span>
                 </button>
                 <!--------------------------------------------------->
-                <a class = "navbar-brand mr-auto" href = "index.html">
+                <a class = "navbar-brand mr-auto" href = "index.php">
                     <img src = "logo2.png" height = "100" width = "110">
                 </a>
                 <!--------------------------------------------------->
                 <div class = "collapse navbar-collapse" id = "Navbar">
                     <ul class = "navbar-nav mr-auto">
                         <li class = "nav-item active"><a class = "nav-link" href = "#"><span class="fa fa-home fa-lg"></span> Home </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./customers.html"><span class = "fa fa-users "></span> Customers </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.html"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./transactions.html"><span class = "fa fa-money fa-lg"></span> Transactions </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./customers.php"><span class = "fa fa-users "></span> Customers </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.php"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./transactions.php"><span class = "fa fa-money fa-lg"></span> Transactions </a></li>
                     </ul>
                 </div>
                 <!--------------------------------------------------->
@@ -124,9 +124,9 @@
                         <h5>Links</h5>
                         <ul class = "list-unstyled">
                             <li><a href = "#">Home</a></li>
-                            <li><a href = "./customers.html">Customers</a></li>
-                            <li><a href = "./contactus.html">Contact us</a></li>
-                            <li><a href = "./transactions.html">Transactions</a></li>
+                            <li><a href = "./customers.php">Customers</a></li>
+                            <li><a href = "./contactus.php">Contact us</a></li>
+                            <li><a href = "./transactions.php">Transactions</a></li>
                         </ul>
                     </div>
                     <!--------------------------------------------------->
@@ -168,6 +168,18 @@
                 })
             })
         </script>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first
+<script src="/__/firebase/8.6.7/firebase-app.js"></script> -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="/__/firebase/8.6.7/firebase-analytics.js"></script> -->
+
+<!-- Initialize Firebase -->
+<!-- <script src="/__/firebase/init.js"></script> -->
+
 
     </body>
 </html>

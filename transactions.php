@@ -24,15 +24,15 @@
                     <span class = "navbar-toggler-icon"></span>
                 </button>
                 <!--------------------------------------------------->
-                <a class = "navbar-brand mr-auto" href = "index.html">
+                <a class = "navbar-brand mr-auto" href = "index.php">
                     <img src = "logo2.png" height = "100" width = "110">
                 </a>
                 <!--------------------------------------------------->
                 <div class = "collapse navbar-collapse" id = "Navbar">
                     <ul class = "navbar-nav mr-auto">
-                        <li class = "nav-item"><a class = "nav-link" href = "./index.html"><span class="fa fa-home fa-lg"></span> Home </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./customers.html"><span class = "fa fa-users "></span> Customers </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.html"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./index.php"><span class="fa fa-home fa-lg"></span> Home </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./customers.php"><span class = "fa fa-users "></span> Customers </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.php"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                         <li class = "nav-item active"><a class = "nav-link" href = "#"><span class = "fa fa-money fa-lg"></span> Transactions </a></li>
                     </ul>
                 </div>
@@ -50,9 +50,9 @@
                     <div class = "col-4 offset-1 col-sm-2">
                         <h5>Links</h5>
                         <ul class = "list-unstyled">
-                            <li><a href = "./index.html">Home</a></li>
-                            <li><a href = "./customers.html">Customers</a></li>
-                            <li><a href = "./contactus.html">Contact us</a></li>
+                            <li><a href = "./index.php">Home</a></li>
+                            <li><a href = "./customers.php">Customers</a></li>
+                            <li><a href = "./contactus.php">Contact us</a></li>
                             <li><a href = "#">Transactions</a></li>
                         </ul>
                     </div>
