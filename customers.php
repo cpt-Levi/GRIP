@@ -15,6 +15,11 @@
         <title>TSF Bank</title>
     </head>
     <body>
+        <?php
+            include 'config.php';
+            $sql = "SELECT * FROM customer_data";
+            $result = mysqli_query($connection, $sql);        
+        ?>
 
         <!--Navigation Bar-->
         <nav class = "navbar navbar-dark navbar-expand-sm fixed-top">
@@ -55,22 +60,22 @@
                     </div>
 
                     <div class = "modal-body">
-                        <form>
-
+                        <form method = "post">
+                            
                             <div class = "form-group row">
                                 <label class = "col-sm-2 col-form-label">Sender</label>
                                 <div class = "col-sm-6 offset-1">
-                                    <select class = "custom-select">
-                                        <option value = "1"></option>
-                                        <option value = "2"></option>
-                                        <option value = "3"></option>
-                                        <option value = "4"></option>
-                                        <option value = "5"></option>
-                                        <option value = "6"></option>
-                                        <option value = "7"></option>
-                                        <option value = "8"></option>
-                                        <option value = "9"></option>
-                                        <option value = "10"></option>
+                                    <select class = "custom-select" name = "SENDER" >
+
+                                    <?php while($rows = mysqli_fetch_assoc($result)){ ?>
+                                        <option value = "<?php echo $rows['Customer_Name'];?>">
+                                           
+                                        <?php echo $rows['Customer_Name']; ?>
+                                        (Balance: <?php echo $rows['Balance']; ?> )
+
+                                        </option>
+                                    <?php } $result -> data_seek(0) ?>
+
                                     </select>
                                 </div>
                             </div>
@@ -78,52 +83,169 @@
                             <div class = "form-group row">
                                 <label class = "col-sm-2 col-form-label">Recepient</label>
                                 <div class = "col-sm-6 offset-1">
-                                    <select class = "custom-select">
-                                        <option value = "1"></option>
-                                        <option value = "2"></option>
-                                        <option value = "3"></option>
-                                        <option value = "4"></option>
-                                        <option value = "5"></option>
-                                        <option value = "6"></option>
-                                        <option value = "7"></option>
-                                        <option value = "8"></option>
-                                        <option value = "9"></option>
-                                        <option value = "10"></option>
+                                    <select class = "custom-select" name = "RECEPIENT">
+
+                                    <?php while($rows = mysqli_fetch_assoc($result)){ ?>
+                                        <option value = "<?php echo $rows['Customer_Name'];?>">
+                                           
+                                           <?php echo $rows['Customer_Name']; ?>
+                                           (Balance: <?php echo $rows['Balance']; ?> )
+   
+                                        </option>
+                                    <?php } $result -> data_seek(0) ?>
+
                                     </select>
                                 </div>
                             </div>
 
                             <div class = "form-group row">
                                 <label class = "col-sm-2 col-form-label">Amount in <span class="fa fa-inr fa-lg"></span></label>
-                                <div class = "col-sm-6 offset-1">
-                                    <input type = "number">
-                                </div>   
+                                    <div class = "col-sm-6 offset-1">
+                                        <input type = "number" name = "AMOUNT">
+                                    </div>   
                             </div>
 
+                                <div class = "offset-1 col-md-5">
+
+                                    <button type = "submit" name = "submit" class = "btn btn-success">
+                                        Confirm
+                                    </button>
+                                    <button type = "reset" class = "btn btn-danger" data-dismiss="modal">
+                                        Cancel
+                                    </button>
+
+                                </div>   
                         </form>
                     </div>
-
-                    <div class = "modal-footer">
-                        <div class = "offset-1 col-md-5">
-                            <button type = "submit" class = "btn btn-success">
-                                Confirm
-                            </button>
-                            <button type = "reset" class = "btn btn-danger" data-dismiss="modal">
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
 
-        <!--------------------------------------------------->
-
+            <!--------------------------------------------------->
         
+        <?php
+
+        include 'config.php';
+        
+        if(isset($_POST['submit']))
+        {
+            $FROM = $_POST['SENDER'];
+            $TO = $_POST['RECEPIENT'];
+            $AMT = $_POST['AMOUNT'];
+
+            $sql = "SELECT * FROM customer_data WHERE Customer_Name = '$FROM' ";
+            $queryOne = mysqli_query($connection, $sql);
+            $sqlONE = mysqli_fetch_assoc($queryOne);
+
+            $sql = "SELECT * FROM customer_data WHERE Customer_Name = '$TO' ";
+            $queryTwo = mysqli_query($connection, $sql);
+            $sqlTWO = mysqli_fetch_assoc($queryTwo);
+
+            if (($AMT) < 0)
+            {
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Warning !!","Oops! Negative values cannot be transferred","warning")';
+                echo '}, 600);</script>';
+            }
+         
+            else if($AMT > $sqlONE['Balance']) 
+            {
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Error !!","Bad Luck! Insufficient Balance","error")';
+                echo '}, 600);</script>';
+            }
+             
+            else if($AMT == 0)
+            {
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Warning !!","Oops! Zero value cannot be transferred","warning")';
+                echo '}, 600);</script>';
+            }
+        
+            else 
+            {           
+                $newbalance = $sqlONE['Balance'] - $AMT;
+                $sql = "UPDATE customer_data set Balance = $newbalance where Customer_Name = '$FROM' ";
+                mysqli_query($connection, $sql);
+            
+                $newbalance = $sqlTWO['Balance'] + $AMT;
+                $sql = "UPDATE customer_data set Balance = $newbalance where Customer_Name = '$TO' ";
+                mysqli_query($connection, $sql);
+                
+                $sender = $sqlONE['Customer_Name'];
+                $receiver = $sqlTWO['Customer_Name'];
+
+                date_default_timezone_set('Asia/Kolkata');
+                $timestamp = date('Y-m-d h:i:s');
+
+                $sql = "INSERT INTO transactHistory(`Sender`, `Recepient`, `Amount`, `Date-Time`) VALUES ('$sender','$receiver','$AMT', '$timestamp')";
+                $query = mysqli_query($connection, $sql);
+
+                if($query)
+                {
+                    echo '<script type="text/javascript">';
+                    echo 'setTimeout(function () 
+                        { swal("Transaction Successful !!",
+                            "Your have successfully sent money",
+                            "success").then(function() 
+                            {window.location = "transactions.php";});';
+                    echo '}, 600);</script>';
+                }
+            
+                $newbalance = 0;
+                $AMT = 0;
+            }
+        }
+
+        ?>
+
+            <!--------------------------------------------------->
+
+        <div class = "container" id = "table">
+            <h2 class = "text-center"><b>CUSTOMERS OF TSF BANK</b></h2>
+            <div class = "row">
+                <div class = "col">
+                    <div class = "table-responsive">
+                        <table class = "table table-striped">
+                            <thead class = "thead-dark">
+                                <tr>
+                                    <th class = "text-center">Customer Name</th>
+                                    <th class = "text-center">Customer Email ID</th>
+                                    <th class = "text-center">Customer Phone No.</th>
+                                    <th class = "text-center">Balance</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                
+                                while($rows = mysqli_fetch_assoc($result)){
+
+                                ?>
+
+                                <tr>
+                                    <td class = "text-center"><?php echo $rows['Customer_Name'] ?></td>
+                                    <td class = "text-center"><?php echo $rows['Customer_Email'] ?></td>
+                                    <td class = "text-center"><?php echo $rows['Customer_Phone'] ?></td>
+                                    <td class = "text-center"><?php echo $rows['Balance'] ?></td>
+                                </tr>
+
+                                <?php
+                                
+                                }
+
+                                ?>
+                                
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-        <!--------------------------------------------------->
+            <!--------------------------------------------------->
 
         <footer class = "footer">
             <div class = "container-fluid">
@@ -168,6 +290,7 @@
         <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
         <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
         <script>
             $(document).ready(function(){

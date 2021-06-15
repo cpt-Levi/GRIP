@@ -15,7 +15,11 @@
         <title>TSF Bank</title>
     </head>
     <body>
-
+        <?php
+            include 'config.php';
+            $sql = "SELECT * FROM transactHistory";
+            $result = mysqli_query($connection, $sql);        
+        ?>
         <!--Navigation Bar-->
         <nav class = "navbar navbar-dark navbar-expand-sm fixed-top">
             <div class = "container-fluid">
@@ -42,7 +46,53 @@
             </div>
         </nav>
         <!--------------------------------------------------->
-        
+
+        <div class = "container" id = "table">
+            <h2 class = "text-center"><b>TRANSACTION HISTORY</b></h2>
+            <div class = "row">
+                <div class = "col">
+                    <div class = "table-responsive">
+                        <table class = "table table-striped">
+                            <thead class = "thead-dark">
+                                <tr>
+                                    <th class = "text-center">Sender Name</th>
+                                    <th class = "text-center">Recepient Name</th>
+                                    <th class = "text-center">Amount</th>
+                                    <th class = "text-center">Date & Time</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                
+                                while($rows = mysqli_fetch_assoc($result)){
+
+                                ?>
+
+                                <tr>
+                                    <td class = "text-center"><?php echo $rows['Sender'] ?></td>
+                                    <td class = "text-center"><?php echo $rows['Recepient'] ?></td>
+                                    <td class = "text-center"><?php echo $rows['Amount'] ?></td>
+                                    <td class = "text-center"><?php echo $rows['Date-Time'] ?></td>
+                                </tr>
+
+                                <?php
+                                
+                                }
+
+                                ?>
+                                
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--------------------------------------------------->
         <footer class = "footer">
             <div class = "container-fluid">
                 <div class = "row">
