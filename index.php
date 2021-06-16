@@ -14,8 +14,9 @@
 
         <title>TSF Bank</title>
     </head>
-    <body>
 
+    <!---------------------------------------------------> 
+    <body>
         <!--Navigation Bar-->
         <nav class = "navbar navbar-dark navbar-expand-sm fixed-top">
             <div class = "container-fluid">
@@ -23,33 +24,34 @@
                 <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#Navbar">  <!--Collapsable Navigation Bar-->
                     <span class = "navbar-toggler-icon"></span>
                 </button>
-                <!--------------------------------------------------->
+                <!--BANK LOGO------------------------------------------------->
                 <a class = "navbar-brand mr-auto" href = "index.php">
                     <img src = "logo2.png" height = "100" width = "110">
                 </a>
-                <!--------------------------------------------------->
+                <!--LINKS FOR PAGES------------------------------------------------->
                 <div class = "collapse navbar-collapse" id = "Navbar">
                     <ul class = "navbar-nav mr-auto">
                         <li class = "nav-item active"><a class = "nav-link" href = "#"><span class="fa fa-home fa-lg"></span> Home </a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "./customers.php"><span class = "fa fa-users "></span> Customers </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.php"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "./transactions.php"><span class = "fa fa-money fa-lg"></span> Transactions </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.php"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                     </ul>
                 </div>
-                <!--------------------------------------------------->
-                
-                <!--------------------------------------------------->                
+                <!--------------------------------------------------->              
             </div>
         </nav>
-        <!--------------------------------------------------->
+
+        <!--HEADER CLASS------------------------------------------------->
         <header class = "jumbotron">
             <div class = "container">
+
                 <div class = "row row-header">
                     <div class = "col-12">
                         <h1>The Sparks Foundation Bank</h1>
                     </div>
                 </div>
-                <!--------------------------------------------------->
+
+                <!--BANK INFORMATION------------------------------------------------->
                 <div class = "row row-header">
                     
                     <div class = "col-12 col-sm-4">
@@ -76,8 +78,9 @@
                 <!--------------------------------------------------->
             </div>
         </header>
+        <!--HEADER ENDING------------------------------------------------->
         
-        <!--------------------------------------------------->
+        <!--BANK PRINCIPLES------------------------------------------------->
         <div class = "container">
             <div class = "row row-content">
                 <div class = "col-12">
@@ -85,7 +88,7 @@
                 </div>
             </div>  
 
-                <!--------------------------------------------------->
+                <!--PRINCIPLES AND LOGOS------------------------------------------------->
                 <div class = "row row-content">
                     <div class = "col-6 col-sm-2">
                         <i class = "fa fa-trophy fa-5x"></i>
@@ -114,12 +117,12 @@
                 </div>
                 <!--------------------------------------------------->
         </div>
-        <!--------------------------------------------------->
 
+        <!--FOOTER CLASS------------------------------------------------->
         <footer class = "footer">
             <div class = "container-fluid">
                 <div class = "row">
-                    <!--------------------------------------------------->
+                    <!--LINKS TO PAGES------------------------------------------------->
                     <div class = "col-4 offset-1 col-sm-2">
                         <h5>Links</h5>
                         <ul class = "list-unstyled">
@@ -141,7 +144,7 @@
                           <i class = "fa fa-envelope fa-lg"></i> : <a href="mailto:swapchhatre5@gmail.com">contact@tsfbank.in</a>
                        </address>
                     </div>
-                    <!--------------------------------------------------->
+                    <!--DEVELOPER DETAILS AND ACCOUNT LINKS------------------------------------------------->
                     <div class = "col-4 col-sm-4 text-center">
                         <h5>Developer : Swapnil Chhatre</h5>
                             <a id = "link-items" href = "https://github.com/cpt-Levi"><i class = "fa fa-github fa-5x"></i></a>
@@ -149,13 +152,11 @@
                             <a id = "link-items" href = "https://www.instagram.com/swapnil._.chhatre/"><i class = "fa fa-instagram fa-5x"></i></a>
                             <a id = "link-items" href = "https://www.facebook.com/swapnil.chhatre"><i class = "fa fa-facebook-square fa-5x"></i></a>
                     </div>
-
-
                 </div>
             </div>
         </footer>
+        <!--FOOTER ENDING------------------------------------------------->
 
-        <!--------------------------------------------------->
         <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
         <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
         <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
@@ -168,18 +169,5 @@
                 })
             })
         </script>
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first
-<script src="/__/firebase/8.6.7/firebase-app.js"></script> -->
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<!-- <script src="/__/firebase/8.6.7/firebase-analytics.js"></script> -->
-
-<!-- Initialize Firebase -->
-<!-- <script src="/__/firebase/init.js"></script> -->
-
-
     </body>
 </html>

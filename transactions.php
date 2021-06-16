@@ -17,7 +17,7 @@
     <body>
         <?php
             include 'config.php';
-            $sql = "SELECT * FROM transactHistory";
+            $sql = "SELECT * FROM transactHistory";     //Importing data from transactHistory table
             $result = mysqli_query($connection, $sql);        
         ?>
         <!--Navigation Bar-->
@@ -27,7 +27,7 @@
                 <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#Navbar">  <!--Collapsable Navigation Bar-->
                     <span class = "navbar-toggler-icon"></span>
                 </button>
-                <!--------------------------------------------------->
+                <!--LOGO------------------------------------------------->
                 <a class = "navbar-brand mr-auto" href = "index.php">
                     <img src = "logo2.png" height = "100" width = "110">
                 </a>
@@ -36,17 +36,15 @@
                     <ul class = "navbar-nav mr-auto">
                         <li class = "nav-item"><a class = "nav-link" href = "./index.php"><span class="fa fa-home fa-lg"></span> Home </a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "./customers.php"><span class = "fa fa-users "></span> Customers </a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.php"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                         <li class = "nav-item active"><a class = "nav-link" href = "#"><span class = "fa fa-money fa-lg"></span> Transactions </a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "./contactus.php"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                     </ul>
                 </div>
-                <!--------------------------------------------------->
-                
-                <!--------------------------------------------------->                
+                <!--------------------------------------------------->               
             </div>
         </nav>
-        <!--------------------------------------------------->
 
+        <!--TABLE FOR TRANSACTIONS------------------------------------------------->
         <div class = "container" id = "table">
             <h2 class = "text-center"><b>TRANSACTION HISTORY</b></h2>
             <div class = "row">
@@ -63,11 +61,7 @@
                             </thead>
 
                             <tbody>
-                                <?php
-                                
-                                while($rows = mysqli_fetch_assoc($result)){
-
-                                ?>
+                                <?php while($rows = mysqli_fetch_assoc($result)){ ?>
 
                                 <tr>
                                     <td class = "text-center"><?php echo $rows['Sender'] ?></td>
@@ -76,24 +70,18 @@
                                     <td class = "text-center"><?php echo $rows['Date-Time'] ?></td>
                                 </tr>
 
-                                <?php
-                                
-                                }
-
-                                ?>
+                                <?php } ?>
                                 
                             </tbody>
-
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
         <!--------------------------------------------------->
-        <footer class = "footer">
+
+        <!--FOOTER CLASS------------------------------------------------->
+        <footer class = "footer ">
             <div class = "container-fluid">
                 <div class = "row">
                     <!--------------------------------------------------->
@@ -126,8 +114,7 @@
                             <a id = "link-items" href = "https://www.instagram.com/swapnil._.chhatre/"><i class = "fa fa-instagram fa-5x"></i></a>
                             <a id = "link-items" href = "https://www.facebook.com/swapnil.chhatre"><i class = "fa fa-facebook-square fa-5x"></i></a>
                     </div>
-
-
+                    <!--------------------------------------------------->
                 </div>
             </div>
         </footer>

@@ -14,8 +14,8 @@
 
         <title>TSF Bank</title>
     </head>
-    <body>
 
+    <body>
         <!--Navigation Bar-->
         <nav class = "navbar navbar-dark navbar-expand-sm fixed-top">
             <div class = "container-fluid">
@@ -32,20 +32,20 @@
                     <ul class = "navbar-nav mr-auto">
                         <li class = "nav-item"><a class = "nav-link" href = "./index.php"><span class="fa fa-home fa-lg"></span> Home </a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "./customers.php"><span class = "fa fa-users "></span> Customers </a></li>
-                        <li class = "nav-item active"><a class = "nav-link" href = "#"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "./transactions.php"><span class = "fa fa-money fa-lg"></span> Transactions </a></li>
+                        <li class = "nav-item active"><a class = "nav-link" href = "#"><span class = "fa fa-info-circle fa-lg"></span> Contact Us </a></li>
                     </ul>
                 </div>
-                <!--------------------------------------------------->
-                
-                <!--------------------------------------------------->                
+                <!--------------------------------------------------->               
             </div>
         </nav>
         <!--------------------------------------------------->
 
+        <!--Feedback form for developer-->
+        <p align = "center" id = "feedback"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2Q_g1v9Z6UrcMGUXq1kkP1LAFVSQMamnJm0FGzWuoBGqWNQ/viewform?embedded=true" 
+        width="1920" height="1439" frameborder="0" marginheight="0" marginwidth="0" scrolling = "no" onload = "scroll(0,0)">Loading…</iframe></p>
 
-
-        <!--------------------------------------------------->
+        <!--FOOTER CLASS------------------------------------------------->
         <footer class = "footer">
             <div class = "container-fluid">
                 <div class = "row">
